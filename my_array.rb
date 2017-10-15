@@ -6,58 +6,85 @@ class MyArray
   end
 
   def size
-    # TODO
+    @array.size
   end
 
   def reverse
-    # TODO
+    @array.reverse!
   end
 
   def max
-    # TODO
+    @array.max
   end
 
   def min
-    # TODO
+    @array.min
   end
 
   def desc
-    # TODO
+    @array.sort.reverse
   end
 
   def asc
-    # TODO
+     @array.sort
   end
 
   def odd
-    # TODO
+    @array.find_all{ |elem| elem.odd? }
   end
 
   def multiple_to_three
-    # TODO
+    @array.find_all{ |elem| elem % 3==0 }
+
   end
 
   def uniq
-    # TODO
+    @array.uniq
   end
 
   def devide_on_ten
-    # TODO
+    @array.map { |e| e.to_f/10  }
   end
 
   def chars
-    # TODO
+    @array.collect{ |e| ('a'...'z').to_a[e-1].to_sym}
   end
 
   def switch
-    # TODO
+    min = @array.min
+   max = @array.max
+   min_index = @array.index(min)
+   max_index = @array.index(max)
+   dup_array = @array.dup
+   dup_array[min_index] = max
+   dup_array[max_index] = min
+   dup_array
   end
 
   def before_min
-    # TODO
+    min = @array.min
+      min_index = @array.index(min)
+      @array.take(min_index)
   end
 
   def three_smallest
-    # TODO
+     @array.sort.take(3)
   end
 end
+
+array = [1,2, 3,3,5, 4, 8,5,2,8,7,5]
+a = MyArray.new(array)
+puts "size=#{a.size}"
+puts "revers=#{a.reverse}"
+puts "max=#{a.max}"
+puts "min=#{a.min}"
+puts "desc=#{a.desc}"
+puts "asc=#{a.asc}"
+puts "odd=#{a.odd}"
+puts "multiple_to_three=#{a.multiple_to_three}"
+puts "uniq=#{a.uniq}"
+puts "devide_on_ten=#{a.devide_on_ten}"
+puts "chars=#{a.chars}"
+puts "switch=#{a.switch}"
+puts "before_min=#{a.before_min}"
+puts "three_smallest=#{a.three_smallest}"
